@@ -95,5 +95,5 @@ jobs:
           ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
             cd ${{ secrets.APP_DIR }}
             docker compose down
-            docker compose up -d
+            docker compose up -d --build
           EOF
