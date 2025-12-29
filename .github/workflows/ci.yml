@@ -82,6 +82,7 @@ jobs:
         run: |
           scp -i ~/.ssh/id_rsa_gh docker-compose.yml ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.APP_DIR }}/
           scp -i ~/.ssh/id_rsa_gh .env ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.APP_DIR }}/
+          scp -i ~/.ssh/id_rsa_gh Dockerfile ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.APP_DIR }}/
 
       - name: Restart application
         run: |
