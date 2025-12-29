@@ -75,6 +75,11 @@ jobs:
           scp -i ~/.ssh/id_rsa_gh dist/*.jar \
           ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.APP_DIR }}/app.jar
 
+      - name: Copy docker-compose.yml and .env
+        run: |
+          scp -i ~/.ssh/id_rsa_gh docker-compose.yml ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.APP_DIR }}/
+          scp -i ~/.ssh/id_rsa_gh .env ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.APP_DIR }}/
+
       - name: Restart application
         run: |
           ssh -i ~/.ssh/id_rsa_gh \
