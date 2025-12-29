@@ -80,7 +80,7 @@ jobs:
 
       - name: Copy jar to server
         run: |
-          scp -v -i ~/.ssh/id_rsa_gh dist/*.jar \
+          scp -v -i ~/.ssh/id_rsa_gh dist/mifi-devops-currency-app-jar.jar \
           ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.APP_DIR }}/app.jar
 
       - name: Copy docker-compose.yml and .env
